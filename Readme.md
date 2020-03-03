@@ -2,17 +2,19 @@
 
 ## Presentation:
 
-### [Demo Video](https://youtu.be/wM5r789cXNA)
+### Demo Videos :
+1. https://youtu.be/wM5r789cXNA
+2. https://youtu.be/Td3B7Ip4oEU
 
-Marketplace link : https://www.unrealengine.com/marketplace/en-US/slug/auto-node-arranger
+**Marketplace link :** https://www.unrealengine.com/marketplace/en-US/slug/auto-node-arranger
 
 With the Auto Node Arranger plugin, you can automatically arrange your graph nodes the way you want. The arrangement works for all graph types. You can customize the arrangement for having exactly the graph you want.
 
-Please report any unexpected behaviours. It will be fixed as soon as possible.
+Please report any unexpected behaviours. It will be fixed as soon as possible. *(cf. [Safe mode](#5-Safe-mode-1))*
 
-Support link : https://forums.unrealengine.com/unreal-engine/marketplace/1630487-auto-node-arranger
+**Support link :** https://forums.unrealengine.com/unreal-engine/marketplace/1630487-auto-node-arranger
 
-Support e-mail : bstt.ue4@gmail.com
+**Support e-mail :** bstt.ue4@gmail.com
 
 ## Documentation:
 
@@ -20,7 +22,7 @@ Support e-mail : bstt.ue4@gmail.com
 
 #### 1. [Tips](#1-tips-1)
 
-#### 2. [Commands: (default shortcut)](#2-Commands-default-shortcut-1)
+#### 2. [Commands : (default shortcut)](#2-Commands--default-shortcut-1)
 
 ##### 2.1. [Arrange](#21-Arrange-1)
 ###### 2.1.1. [Arrange Straight (Shift+Q)](#211-Arrange-Straight-ShiftQ-1)
@@ -29,9 +31,9 @@ Support e-mail : bstt.ue4@gmail.com
 
 ##### 2.2. [Toggle Auto Arrange (Shift+Space)](#22-Toggle-Auto-Arrange-ShiftSpace-1)
 
-##### 2.3. [Toggle Group Nodes (Shift+G)](#23-Toggle-Group-Nodes-ShiftG-1)
+##### 2.3. [Select Connected Graph (Shift+F)](#23-Select-Connected-Graph-ShiftF-1)
 
-##### 2.4. [Select Connected Graph (Shift+F)](#24-Select-Connected-Graph-ShiftF-1)
+#### 2.4. [Register All Nodes (Shift+P)](#24-Register-All-Nodes-ShiftP-1)
 
 ##### 2.5. [Add Custom Graph Config (Shift+Enter)](#25-Add-Custom-Graph-Config-ShiftEnter-1)
 
@@ -47,7 +49,8 @@ Support e-mail : bstt.ue4@gmail.com
 ##### 3.2. [Graph configuration](#32-Graph-configuration-1)
 <!--
 ###### 3.2.1. [Spacing](#321-Spacing-1)
-###### 3.2.2. [Arranged dimensions](#322-Arranged-dimensions-1)
+###### 3.2.2. [Comment spacing](#322-Comment-spacing-1)
+###### 3.2.3. [Arranged dimensions](#322-Arranged-dimensions-1)
 -->
 ##### 3.3. [Advanced configuration](#33-Advanced-configuration-1)
 <!--
@@ -58,15 +61,16 @@ Support e-mail : bstt.ue4@gmail.com
 ###### 3.3.5. [Compact offset](#335-Compact-offset-1)
 ###### 3.3.6. [Custom graph config](#336-Custom-graph-config-1)
 -->
-#### 4. [Group register](#4-Group-register-1)
+#### 4. [Node properties register](#4-Node-properties-register-1)
+#### 5. [Safe mode](#5-Safe-mode-1)
 #
 ### 1. Tips
 
 The Arrange commands of ANA (Auto Node Arranger) work the same way **regardless of the selected nodes** in the connected graph(s) to arrange.
 
-The arrangement depends on the current zoom of the graph since the size of the nodes also **depends on the current zoom**.
+The arrangement **requires a first good sight** of all nodes that will be arranged in order to **not depend on the current zoom**.
 
-[![Zoom](Gifs/Downsized/1_1-Zoom.gif)](Gifs/1_1-Zoom.gif)
+[![Zoom](Gifs/Downsized/1_1-NodeSizeAutoSaved.gif)](Gifs/1_1-NodeSizeAutoSaved.gif)
 
 ANA tries to keep the **Y position order**.  
 ANA tries to order in Y position according to the **order of the pins**.
@@ -75,11 +79,11 @@ ANA tries to order in Y position according to the **order of the pins**.
 
 The default commands have been chosen for their **compatibility with UE4 default settings**, but you can change it in ***Editor Preferences/General/Keyboard Shortcuts/Auto Node Arranger***.
 
-![KeyboardShortcuts](Images/1_51-KeyboardShortcuts.png)
+![KeyboardShortcuts](Images/1_1-KeyboardShortcuts.png)
 
 [Table of contents](#Table-of-contents)
 
-### 2. Commands: (default shortcut)
+### 2. Commands : (default shortcut)
 
 #### 2.1. Arrange
 
@@ -105,37 +109,31 @@ ANA places all exec nodes with the minimum spacing required and places all 'free
 
 You can enable/disable the auto arrangement on pin connection.
 
-#### 2.3. Toggle Group Nodes (Shift+G)
+#### 2.3. Select Connected Graph (Shift+F)
 
-You can group/ungroup nodes to lock the relative location between nodes for the arrangement.
+You can select all connected nodes and comments of a graph.
 
-When you select a node of a group, ANA automatically selects the group of this node. If you want to select only one node of this group, click again on the node that you want to select.
+[![ConnectedGraph](Gifs/Downsized/2_31-ConnectedGraph.gif)](Gifs/2_31-ConnectedGraph.gif)
 
-**NB:** You can hold ctrl to select/unselect a node.
+#### 2.4. Register All Nodes (Shift+P)
 
-**Tip:** Since the arrangement depends on the node size, it is recommended to **group nodes that are out of your sight** when you are arranging a big graph.
+You can [register the size of all nodes](Images/2_41-RegisterAllNodes.png) of the current graph.
 
-[![Group](Gifs/Downsized/2_31-Group.gif)](Gifs/2_31-Group.gif)
+If all nodes are registered you can simultaneously arrange multiple graph.
 
-#### 2.4. Select Connected Graph (Shift+F)
+[![SimultaneousMultipleGraphArrangement](Gifs/Downsized/2_42-SimultaneousMultipleGraphArrangement.gif)](Gifs/2_42-SimultaneousMultipleGraphArrangement.gif)
 
-You can select all connected nodes of a graph.
-
-**NB:** groups are ignored.
-
-[![ConnectedGraph](Gifs/Downsized/2_41-ConnectedGraph.gif)](Gifs/2_41-ConnectedGraph.gif)
+**Tip :** Use this command when many nodes are not registered (due to copy-paste or an implementation started without ANA)
 
 #### 2.5. Add Custom Graph Config (Shift+Enter)
 
 You can have as many different configurations as you want by graph type *(see [Custom graph config](#336-Custom-graph-config))*.
 
-<!--TODO gif (arrange + create + change spacing + arrange)-->
-
 [Table of contents](#Table-of-contents)
 
 ### 3. Configuration
 
-ANA has a lot of customizable options: you can change them in ***Editor Preferences/Plugins/Auto Node Arranger***.
+ANA has a lot of customizable options : you can change them in ***Editor Preferences/Plugins/Auto Node Arranger***.
 
 ![ANA_EditorPreferences](Images/3_1-ANA_EditorPreferences.png)
 
@@ -151,7 +149,7 @@ If enabled, ANA automatically arrange nodes on pin connection with the last arra
 
 If enabled, ANA automatically generate reroute nodes for each loop connection.
 
-**Tip:** reroute nodes are generated between the 2 nodes **the most 'negatively' spaced in X'.**
+**Tip :** reroute nodes are generated between the 2 nodes **the most 'negatively' spaced in X'.**
 
 [![ReroutePlacement](Images/Downsized/3_121-ReroutePlacement.png)](Images/3_121-ReroutePlacement.png) [![RerouteArrangement](Images/Downsized/3_122-RerouteArrangement.png)](Images/3_122-RerouteArrangement.png)
 
@@ -189,7 +187,36 @@ Spacing is used with the Arrange Straight and Arrange Center commands whereas Co
 
 [![Spacing1](Images/Downsized/3_211-Spacing1.png)](Images/3_211-Spacing1.png) [![Spacing2](Images/Downsized/3_212-Spacing2.png)](Images/3_212-Spacing2.png)
 
-##### 3.2.2. Arranged dimensions
+##### 3.2.2. Comment spacing
+
+Comment spacing is used between comment and nodes inside.
+
+[![LowCommentSpacing](Images/Downsized/3_221-LowCommentSpacing.png)](Images/3_221-LowCommentSpacing.png) [![HighCommentSpacing](Images/Downsized/3_222-HighCommentSpacing.png)](Images/3_222-HighCommentSpacing.png)
+
+###### 3.2.2.1. 'Auto Size Comment' plugin compatibility
+
+ANA is compatible with the **'Auto Size Comment'** plugin which is a plugin that automatically resize your comments.
+
+**Link :** https://www.unrealengine.com/marketplace/en-US/product/auto-size-comments
+
+The padding of 'Auto Size Comment' should be **equal to or lower than** the Comment spacing of 'Auto Node Arranger'
+
+![ANA_Spacing](Images/3_2211-ANA_Spacing.png)
+![ASC_Padding](Images/3_2212-ASC_Padding.png)
+
+*Example with ASC Padding **equal to** ANA Spacing :*
+
+[![PaddingEqualToSpacing](Images/Downsized/3_2213-PaddingEqualToSpacing.png)](Images/3_2213-PaddingEqualToSpacing.png)
+
+*Example with ASC Padding **lower than** ANA Spacing :*
+
+[![PaddingLowerThanSpacing](Images/Downsized/3_2214-PaddingLowerThanSpacing.png)](Images/3_2214-PaddingLowerThanSpacing.png)
+
+A padding **greater than** comment spacing can lead to this :
+
+[![PaddingGreaterThanSpacing](Gifs/Downsized/3_2215-PaddingGreaterThanSpacing.gif)](Gifs/3_2215-PaddingGreaterThanSpacing.gif)
+
+##### 3.2.3. Arranged dimensions
 
 You can choose to arrange only in X, only in Y, or in both dimensions.
 
@@ -245,20 +272,28 @@ You can add an offset to shift the alignment *(positive value for left, negative
 
 ##### 3.3.6. Custom graph config
 
-By default, there are 3 graph configs: the Material Graph config, the AI Graph config and the default Graph config used with all other graph types. You can add a custom graph config for one graph type with Add custom graph config command (Shift+Enter by default). ANA warns you when you already add this graph type, else it adds a new configuration which override the “default” graph config.
+By default, there are 3 graph configs : the Material Graph config, the AI Graph config and the default Graph config used with all other graph types. You can add a custom graph config for one graph type with Add custom graph config command (Shift+Enter by default). ANA warns you when you already add this graph type, else it adds a new configuration which override the “default” graph config.
 
-**Tip:** you can also override Material Graph config or AI Graph config.
+**Tip :** you can also override Material Graph config or AI Graph config.
 
 [Table of contents](#Table-of-contents)
 
-### 4. Group register
+### 4. Node properties register
 
-ANA store all created groups in the Group register: you can access it in ***Project Settings/Plugins/Auto Node Arranger***.
+ANA store the size of all nodes in the Node properties register: you can access it in ***Project Settings/Plugins/Auto Node Arranger***.
 
 ![ANA_ProjectSettings](Images/4_1-ANA_ProjectSettings.png)
 
-There you can delete groups that you don't need anymore.
+There you can delete node properties that you don't need anymore.
 
-<!--TODO gif (create 2 groups + show register + delete group (command) + show register + arrange + delete group in register + arrange)-->
+### 5. Safe mode
+
+Safe mode prevent UE4 to crash in the middle of a non saved project.
+
+When you got an error caught or a timeout :
+- Save your project.
+- Try to reproduce the error.  
+- Fill this [template e-mail](Template_e_mail.md)
+- Send it at this e-mail address : bstt.ue4@gmail.com
 
 [Table of contents](#Table-of-contents)
