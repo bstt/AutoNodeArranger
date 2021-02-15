@@ -12,11 +12,22 @@ With the Auto Node Arranger plugin, you can automatically arrange your graph nod
 
 Please report any unexpected behaviours. It will be fixed as soon as possible. *(cf. [Safe mode](#5-Safe-mode-1))*
 
-**Support link :** https://forums.unrealengine.com/unreal-engine/marketplace/1630487-auto-node-arranger
-
 **Support e-mail :** bstt.ue4@gmail.com
 
 ## Documentation:
+
+#### Release Notes 3.0.1 :
+
+- **new :** Auto Arrange on deselection
+- **new :** Connected graph only arrangement
+- **new :** Progressive Selection
+- **new :** Animated arrangement
+- **updated :** Reroute node lock *--> not optional anymore*
+- **updated :** Compact alignment *--> temporary disabled*
+- **deleted :** Compact offset
+- **deleted :** Compact type
+
+*Documentation to update (WIP)*
 
 ### Table of contents
 
