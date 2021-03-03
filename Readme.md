@@ -2,9 +2,7 @@
 
 ## Presentation:
 
-### Demo Videos :
-1. https://youtu.be/wM5r789cXNA
-2. https://youtu.be/Td3B7Ip4oEU
+### Demo Video : https://youtu.be/l0ztFE0472k
 
 **Marketplace link :** https://www.unrealengine.com/marketplace/en-US/slug/auto-node-arranger
 
