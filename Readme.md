@@ -2,9 +2,7 @@
 
 ## Presentation:
 
-### Demo Videos :
-1. https://youtu.be/wM5r789cXNA
-2. https://youtu.be/Td3B7Ip4oEU
+### Demo Video : https://youtu.be/l0ztFE0472k
 
 **Marketplace link :** https://www.unrealengine.com/marketplace/en-US/slug/auto-node-arranger
 
@@ -13,21 +11,6 @@ With the Auto Node Arranger plugin, you can automatically arrange your graph nod
 Please report any unexpected behaviours. It will be fixed as soon as possible. *(cf. [Safe mode](#5-Safe-mode-1))*
 
 **Support e-mail :** bstt.ue4@gmail.com
-
-## Documentation:
-
-#### Release Notes 3.0.1 :
-
-- **new :** Auto Arrange on deselection
-- **new :** Connected graph only arrangement
-- **new :** Progressive Selection
-- **new :** Animated arrangement
-- **updated :** Reroute node lock *--> not optional anymore*
-- **updated :** Compact alignment *--> temporary disabled*
-- **deleted :** Compact offset
-- **deleted :** Compact type
-
-*Documentation to update (WIP)*
 
 ### Table of contents
 
@@ -55,7 +38,9 @@ Please report any unexpected behaviours. It will be fixed as soon as possible. *
 ###### 3.1.1. [Auto arrange](#311-Auto-arrange-1)
 ###### 3.1.2. [Auto generate reroute](#312-Auto-generate-reroute-1)
 ###### 3.1.3. [Exec spacing](#313-Exec-spacing-1)
-###### 3.1.4. [Compact Mode type](#314-Compact-Mode-type-1)
+###### 3.1.4. [Group all connected graph](#314-Group-all-connected-graph-1)
+###### 3.1.5. [Instant arrange](#315-Instant-arrange-1)
+###### 3.1.6. [Progressive selection](#316-Progressive-selection-1)
 -->
 ##### 3.2. [Graph configuration](#32-Graph-configuration-1)
 <!--
@@ -65,12 +50,9 @@ Please report any unexpected behaviours. It will be fixed as soon as possible. *
 -->
 ##### 3.3. [Advanced configuration](#33-Advanced-configuration-1)
 <!--
-###### 3.3.1. [Nodes on Right by Default](#331-Nodes-on-Right-by-Default-1)
-###### 3.3.2. [Reroute lock node](#332-Reroute-lock-node-1)
-###### 3.3.3. [Aligned pins offset](#333-Aligned-pins-offset-1)
-###### 3.3.4. [Compact alignment](#334-Compact-alignment-1)
-###### 3.3.5. [Compact offset](#335-Compact-offset-1)
-###### 3.3.6. [Custom graph config](#336-Custom-graph-config-1)
+###### 3.3.1. [Aligned pins offset](#331-Aligned-pins-offset-1)
+###### 3.3.2. [Compact alignment](#332-Compact-alignment-1)
+###### 3.3.3. [Custom graph config](#333-Custom-graph-config-1)
 -->
 #### 4. [Node properties register](#4-Node-properties-register-1)
 #### 5. [Safe mode](#5-Safe-mode-1)
@@ -83,10 +65,9 @@ The arrangement **requires a first good sight** of all nodes that will be arrang
 
 [![Zoom](Gifs/Downsized/1_1-NodeSizeAutoSaved.gif)](Gifs/1_1-NodeSizeAutoSaved.gif)
 
-ANA tries to keep the **Y position order**.  
-ANA tries to order in Y position according to the **order of the pins**.
+All 'free' nodes that **aren't locked** are placed the most **on the right**.
 
-[![Ypos+PinOrder](Gifs/Downsized/1_2-Ypos+PinOrder.gif)](Gifs/1_2-Ypos+PinOrder.gif)
+[![RerouteNodeLockOn](Gifs/Downsized/3_322-RerouteNodeLockOn.gif)](Gifs/3_322-RerouteNodeLockOn.gif)
 
 The default commands have been chosen for their **compatibility with UE4 default settings**, but you can change it in ***Editor Preferences/General/Keyboard Shortcuts/Auto Node Arranger***.
 
@@ -112,23 +93,34 @@ The only difference with Arrange Straight is that ANA tries to center each 'free
 
 ##### 2.1.3. Arrange Compact (Shift+V)
 
-ANA places all exec nodes with the minimum spacing required and places all 'free' nodes one below the other according to the [Compact mode types](#314-Compact-Mode-type-1).
+ANA places a node below another on its right if it is not exec connected and it has less than 1 connected input pin and 1 connected output pin.
 
 [![Compact](Images/Downsized/2_13-Compact.png)](Images/2_13-Compact.png)
 
 #### 2.2. Toggle Auto Arrange (Shift+Space)
 
-You can enable/disable the auto arrangement on pin connection.
+You can enable/disable the [auto arrangement](#311-Auto-arrange-1) on pin connection.
 
 #### 2.3. Select Connected Graph (Shift+F)
 
-You can select all connected nodes and comments of a graph.
+You can gradually select all connected nodes and comments of a graph.  
+Press again **Shift+F** to increase the selection.
 
-[![ConnectedGraph](Gifs/Downsized/2_31-ConnectedGraph.gif)](Gifs/2_31-ConnectedGraph.gif)
+<details>
+<summary>Show selection phasis</summary>
+
+*At each step : Select all comments containing only selected nodes*
+1. Select all nodes contained by selected comments
+2. Select all nodes connected to selected nodes in selected comments
+3. Select all nodes connected to selected nodes
+4. Select all comment containing selected nodes
+</details>
+
+![ConnectedGraph](Gifs/2_31-ConnectedGraph.gif)
 
 #### 2.4. Register All Nodes (Shift+P)
 
-You can [register the size of all nodes](Images/2_41-RegisterAllNodes.png) of the current graph.
+You can [register the size of all nodes](Gifs/2_41-RegisterAllNodes.gif) of the current graph.
 
 If all nodes are registered you can simultaneously arrange multiple graph.
 
@@ -152,13 +144,13 @@ ANA has a lot of customizable options : you can change them in ***Editor Prefere
 
 ##### 3.1.1. Auto arrange
 
-If enabled, ANA automatically arrange nodes on pin connection with the last arrange mode used.
+If enabled, ANA automatically arranges nodes after a pin connection on deselection with the latest used arrange mode.
 
 [![AutoArrange](Gifs/Downsized/3_111-AutoArrange.gif)](Gifs/3_111-AutoArrange.gif)
 
 ##### 3.1.2. Auto generate reroute
 
-If enabled, ANA automatically generate reroute nodes for each loop connection.
+If enabled, ANA automatically generates reroute nodes for each loop connection.
 
 **Tip :** reroute nodes are generated between the 2 nodes **the most 'negatively' spaced in X'.**
 
@@ -170,25 +162,21 @@ Exec Spacing is used between 2 nodes connected by exec pins.
 
 [![ExecSpacing50](Images/Downsized/3_131-ExecSpacing50.png)](Images/3_131-ExecSpacing50.png) [![ExecSpacing200](Images/Downsized/3_132-ExecSpacing200.png)](Images/3_132-ExecSpacing200.png)
 
-##### 3.1.4. Compact Mode type
+##### 3.1.4. Group all connected graph
 
-###### 3.1.4.1. Semi-Compact
+If enabled, ANA groups all connected graph.
 
-ANA places one node below the other only if it is not an exec node and it has less than 1 connected input pin and 1 connected output pin.
+[![GroupOn](Gifs/Downsized/3_1411-GroupOn.gif)](Gifs/3_1411-GroupOn.gif) [![GroupOff](Gifs/Downsized/3_1412-GroupOff.gif)](Gifs/3_1412-GroupOff.gif)
 
-[![Semi-Compact](Images/Downsized/3_141-Semi-Compact.png)](Images/3_141-Semi-Compact.png)
+##### 3.1.5. Instant arrange
 
-###### 3.1.4.2. Compact
+If enabled, animation is disabled.
 
-The only difference with the Semi-Compact type is that if an exec node has less than 1 non-exec-connected input pin, the connected node is placed below.
+##### 3.1.6. Progressive selection
 
-[![Compact](Images/Downsized/3_142-Compact.png)](Images/3_142-Compact.png)
-
-###### 3.1.4.3. Full compact
-
-Only exec nodes aren't placed below another node.
-
-[![FullCompact](Images/Downsized/3_143-FullCompact.png)](Images/3_143-FullCompact.png)
+On Select Connected Graph (**Shift+F**),
+- if enabled, the selection of nodes and comment is progresive
+- if disabled, all nodes that are related to selection are selected.
 
 #### 3.2. Graph configuration
 
@@ -232,56 +220,29 @@ A padding **greater than** comment spacing can lead to this :
 You can choose to arrange only in X, only in Y, or in both dimensions.
 
 #### 3.3. Advanced configuration
- 
-##### 3.3.1. Nodes on Right by Default
 
-All 'free' nodes that aren't locked *(see [Reroute lock node](#332-Reroute-lock-node))* are placed the most on the right if enabled, on the left if disabled.
-
-[![NodesOnRight](Images/Downsized/3_311-NodesOnRight.png)](Images/3_311-NodesOnRight.png) [![NodesOnLeft](Images/Downsized/3_312-NodesOnLeft.png)](Images/3_312-NodesOnLeft.png)
-
-##### 3.3.2. Reroute lock node
-
-If enabled, 1-output reroute nodes lock **all 'free' nodes** on the oppsite direction. 
-
-*Reroute Node Lock On (Nodes on Right)*
-
-[![RerouteNodeLockOn](Gifs/Downsized/3_322-RerouteNodeLockOn.gif)](Gifs/3_322-RerouteNodeLockOn.gif)
-
-If disabled, **only the 1-output reroute nodes** are placed on the opposite direction.
-
-*Reroute Node Lock Off (Nodes on Right)*
-
-[![RerouteNodeLockOff](Images/Downsized/3_321-RerouteNodeLockOff.png)](Images/3_321-RerouteNodeLockOff.png)
-
-##### 3.3.3. Aligned pins offset
+##### 3.3.1. Aligned pins offset
 
 ANA handles line overlap by adding an offset to node responsible of the overlap.
 
-###### 3.3.3.1. Increase offset
+###### 3.3.1.1. Increase offset
 
 You can increase the value in order to better discern the lines.
 
 [![Offset5](Images/Downsized/3_33311-Offset5.png)](Images/3_33311-Offset5.png) [![Offset15](Images/Downsized/3_33312-Offset15.png)](Images/3_33312-Offset15.png)
 
-###### 3.3.3.2. Disable aligned pins
+###### 3.3.1.2. Disable aligned pins
 
 You can disable this feature by putting 0 as value for the aligned pins offset, and then lines can overlap. A solution is to create reroute nodes until the overlap disappears.
 
 [![SolutionOverlap](Images/Downsized/3_33321-SolutionOverlap.png)](Images/3_33321-SolutionOverlap.png)
 
-##### 3.3.4. Compact alignment
+##### 3.3.2. Compact alignment *(temporary disabled)*
 
 You can align compacted nodes to the left or right borders of the parent node, or centers them with the parent node.
 
 [![CompactAlignement](Images/Downsized/3_334-CompactAlignement.png)](Images/3_334-CompactAlignement.png)
-
-##### 3.3.5. Compact offset
-
-You can add an offset to shift the alignment *(positive value for left, negative for right)*.
-
-[![CompactOffset](Images/Downsized/3_335-CompactOffset.png)](Images/3_335-CompactOffset.png)
-
-##### 3.3.6. Custom graph config
+##### 3.3.3. Custom graph config
 
 By default, there are 3 graph configs : the Material Graph config, the AI Graph config and the default Graph config used with all other graph types. You can add a custom graph config for one graph type with Add custom graph config command (Shift+Enter by default). ANA warns you when you already add this graph type, else it adds a new configuration which override the “default” graph config.
 
