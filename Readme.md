@@ -8,7 +8,7 @@
 
 With the Auto Node Arranger plugin, you can automatically arrange your graph nodes the way you want. The arrangement works for all graph types. You can customize the arrangement for having exactly the graph you want.
 
-Please report any unexpected behaviours. It will be fixed as soon as possible. *(cf. [Safe mode](#5-Safe-mode-1))*
+Please report any unexpected behaviours. It will be fixed as soon as possible. *(cf. [Contact-me](#5-Contact-me-1))*
 
 **Support e-mail :** bstt.ue4@gmail.com
 
@@ -51,11 +51,10 @@ Please report any unexpected behaviours. It will be fixed as soon as possible. *
 ##### 3.3. [Advanced configuration](#33-Advanced-configuration-1)
 <!--
 ###### 3.3.1. [Aligned pins offset](#331-Aligned-pins-offset-1)
-###### 3.3.2. [Compact alignment](#332-Compact-alignment-1)
-###### 3.3.3. [Custom graph config](#333-Custom-graph-config-1)
+###### 3.3.2. [Custom graph config](#333-Custom-graph-config-1)
 -->
 #### 4. [Node properties register](#4-Node-properties-register-1)
-#### 5. [Safe mode](#5-Safe-mode-1)
+#### 5. [Contact me](#5-Contact-me-1)
 #
 ### 1. Tips
 
@@ -237,12 +236,7 @@ You can disable this feature by putting 0 as value for the aligned pins offset, 
 
 [![SolutionOverlap](Images/Downsized/3_33321-SolutionOverlap.png)](Images/3_33321-SolutionOverlap.png)
 
-##### 3.3.2. Compact alignment *(temporary disabled)*
-
-You can align compacted nodes to the left or right borders of the parent node, or centers them with the parent node.
-
-[![CompactAlignement](Images/Downsized/3_334-CompactAlignement.png)](Images/3_334-CompactAlignement.png)
-##### 3.3.3. Custom graph config
+##### 3.3.2. Custom graph config
 
 By default, there are 3 graph configs : the Material Graph config, the AI Graph config and the default Graph config used with all other graph types. You can add a custom graph config for one graph type with Add custom graph config command (Shift+Enter by default). ANA warns you when you already add this graph type, else it adds a new configuration which override the “default” graph config.
 
@@ -252,17 +246,15 @@ By default, there are 3 graph configs : the Material Graph config, the AI Graph 
 
 ### 4. Node properties register
 
-ANA store the size of all nodes in the Node properties register: you can access it in ***Project Settings/Plugins/Auto Node Arranger***.
+ANA stores the size of all nodes in the Node properties register: you can access it here : ***Project Settings/Plugins/Auto Node Arranger***.
 
 ![ANA_ProjectSettings](Images/4_1-ANA_ProjectSettings.png)
 
 There you can delete node properties that you don't need anymore.
 
-### 5. Safe mode
+### 5. Contact me
 
-Safe mode prevent UE4 to crash in the middle of a non saved project.
-
-When you got an error caught or a timeout :
+When you got an error :
 - Save your project.
 - Try to reproduce the error.  
 - Fill this [template e-mail](Template_e_mail.md)
