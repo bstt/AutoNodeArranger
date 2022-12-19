@@ -8,7 +8,7 @@
 
 With the Auto Node Arranger plugin, you can automatically arrange your graph nodes the way you want. The arrangement works for all graph types. You can customize the arrangement for having exactly the graph you want.
 
-Please report any unexpected behaviours. It will be fixed as soon as possible. *(cf. [Contact-me](#5-Contact-me-1))*
+Please report any unexpected behaviours. It will be fixed as soon as possible. *(cf. [Contact-me](#5-contact-me-1))*
 
 **Support e-mail :** bstt.ue4@gmail.com
 
@@ -16,46 +16,54 @@ Please report any unexpected behaviours. It will be fixed as soon as possible. *
 
 #### 1. [Tips](#1-tips-1)
 
-#### 2. [Commands : (default shortcut)](#2-Commands--default-shortcut-1)
+#### 2. [Commands : (default shortcut)](#2-commands--default-shortcut-1)
 
-##### 2.1. [Arrange](#21-Arrange-1)
-###### 2.1.1. [Arrange Straight (Shift+Q)](#211-Arrange-Straight-ShiftQ-1)
-###### 2.1.2. [Arrange Center (Shift+X)](#212-Arrange-Center-ShiftX-1)
-###### 2.1.3. [Arrange Compact (Shift+V)](#213-Arrange-Compact-ShiftV-1)
+##### 2.1. [Arrange](#21-arrange-1)
+###### 2.1.1. [Arrange Straight (Shift+Q)](#211-arrange-straight-shiftq-1)
+###### 2.1.2. [Arrange Center (Shift+X)](#212-arrange-center-shiftx-1)
+###### 2.1.3. [Arrange Compact (Shift+V)](#213-arrange-compact-shiftv-1)
 
-##### 2.2. [Toggle Auto Arrange (Shift+Space)](#22-Toggle-Auto-Arrange-ShiftSpace-1)
+##### 2.2. [Toggle Auto Arrange (Shift+Space)](#22-toggle-auto-arrange-shiftspace-1)
 
-##### 2.3. [Select Connected Graph (Shift+F)](#23-Select-Connected-Graph-ShiftF-1)
+##### 2.3. [Select Connected Graph (Shift+F)](#23-select-connected-graph-shiftf-1)
 
-#### 2.4. [Register All Nodes (Shift+P)](#24-Register-All-Nodes-ShiftP-1)
+#### 2.4. [Register All Nodes (Shift+P)](#24-register-all-nodes-shiftp-1)
 
-##### 2.5. [Add Custom Graph Config (Shift+Enter)](#25-Add-Custom-Graph-Config-ShiftEnter-1)
+##### 2.5. [Add Custom Graph Config (Shift+Enter)](#25-add-custom-graph-config-shiftenter-1)
 
-#### 3. [Configuration](#3-Configuration-1)
+#### 3. [Configuration](#3-configuration-1)
 
-##### 3.1. [Basic configuration](#31-Basic-configuration-1)
+##### 3.1. [Basic configuration](#31-basic-configuration-1)
 <!--
-###### 3.1.1. [Auto arrange](#311-Auto-arrange-1)
-###### 3.1.2. [Auto generate reroute](#312-Auto-generate-reroute-1)
-###### 3.1.3. [Exec spacing](#313-Exec-spacing-1)
-###### 3.1.4. [Group all connected graph](#314-Group-all-connected-graph-1)
-###### 3.1.5. [Instant arrange](#315-Instant-arrange-1)
-###### 3.1.6. [Progressive selection](#316-Progressive-selection-1)
+###### 3.1.1. [Arrange selection type](#311-arrange-selection-type-1)
+###### 3.1.2. [Auto arrange](#312-auto-arrange-1)
+###### 3.1.3. [Auto generate reroute](#313-auto-generate-reroute-1)
+###### 3.1.4. [Exec spacing](#314-exec-spacing-1)
+###### 3.1.5. [Group all connected graph](#315-group-all-connected-graph-1)
+###### 3.1.6. [Instant arrange](#316-instant-arrange-1)
+###### 3.1.7. [Progressive selection](#317-progressive-selection-1)
 -->
-##### 3.2. [Graph configuration](#32-Graph-configuration-1)
+##### 3.2. [Graph configuration](#32-graph-configuration-1)
 <!--
-###### 3.2.1. [Spacing](#321-Spacing-1)
-###### 3.2.2. [Comment spacing](#322-Comment-spacing-1)
-###### 3.2.3. [Arranged dimensions](#322-Arranged-dimensions-1)
+###### 3.2.1. [Spacing](#321-spacing-1)
+###### 3.2.2. [Comment spacing](#322-comment-spacing-1)
+###### 3.2.3. [Arranged dimensions](#323-arranged-dimensions-1)
 -->
-##### 3.3. [Advanced configuration](#33-Advanced-configuration-1)
+##### 3.3. [Advanced configuration](#33-advanced-configuration-1)
 <!--
-###### 3.3.1. [Aligned pins offset](#331-Aligned-pins-offset-1)
-###### 3.3.2. [Custom graph config](#333-Custom-graph-config-1)
+###### 3.3.1. [Aligned pins offset](#331-aligned-pins-offset-1)
+###### 3.3.2. [Custom graph config](#332-custom-graph-config-1)
 -->
-#### 4. [Node properties register](#4-Node-properties-register-1)
-#### 5. [Contact me](#5-Contact-me-1)
+#### 4. [Node properties register](#4-node-properties-register-1)
+#### 5. [Contact me](#5-contact-me-1)
 #
+
+### What is new ?
+
+* [2.1. Arrange](#21-arrange-1)
+* [3.1.1. Arrange selection type](#311-arrange-selection-type)
+* [3.1.2. Auto arrange](#312-auto-arrange)
+
 ### 1. Tips
 
 The Arrange commands of ANA (Auto Node Arranger) work the same way **regardless of the selected nodes** in the connected graph(s) to arrange.
@@ -68,15 +76,35 @@ All 'free' nodes that **aren't locked** are placed the most **on the right**.
 
 [![RerouteNodeLockOn](Gifs/Downsized/3_322-RerouteNodeLockOn.gif)](Gifs/3_322-RerouteNodeLockOn.gif)
 
-The default commands have been chosen for their **compatibility with UE4 default settings**, but you can change it in ***Editor Preferences/General/Keyboard Shortcuts/Auto Node Arranger***.
+The default commands have been chosen for their **compatibility with Unreal Engine default settings**, but you can change it in ***Editor Preferences/General/Keyboard Shortcuts/Auto Node Arranger***.
 
 ![KeyboardShortcuts](Images/1_1-KeyboardShortcuts.png)
 
-[Table of contents](#Table-of-contents)
+[Table of contents](#table-of-contents)
 
 ### 2. Commands : (default shortcut)
 
 #### 2.1. Arrange
+
+The Arrange Command behaviour depends on the selected nodes count. *(cf. [Arrange selection type](#311-arrange-selection-type))*
+
+The default Arrange Selection Type is **One For All**.
+
+If you have multiple selected nodes, ANA will arrange only the selected nodes.
+
+[![ArrangeSelectedNodes](Gifs/Downsized/2_1-ArrangeSelectedNodes.gif)](Gifs/2_1-ArrangeSelectedNodes.gif)
+
+If you have only selected comments, ANA will arrange all nodes in the selected comments.
+
+[![ArrangeSelectedComments](Gifs/Downsized/2_1-ArrangeSelectedComment.gif)](Gifs/2_1-ArrangeSelectedComment.gif)
+
+If you have only one selected node, ANA will arrange the graph connected to the selected node.
+
+[![ArrangeConnectedGraphs](Gifs/Downsized/2_1-ArrangeConnectedGraphs.gif)](Gifs/2_1-ArrangeConnectedGraphs.gif)
+
+If you have no selected nodes, ANA will arrange all nodes in the graph.
+
+[![ArrangeAllNodes](Gifs/Downsized/2_1-ArrangeAllNodes.gif)](Gifs/2_1-ArrangeAllNodes.gif)
 
 ##### 2.1.1. Arrange Straight (Shift+Q)
 
@@ -98,7 +126,7 @@ ANA places a node below another on its right if it is not exec connected and it 
 
 #### 2.2. Toggle Auto Arrange (Shift+Space)
 
-You can enable/disable the [auto arrangement](#311-Auto-arrange-1) on pin connection.
+You can enable/disable the [auto arrangement](#312-auto-arrange) on pin connection.
 
 #### 2.3. Select Connected Graph (Shift+F)
 
@@ -129,9 +157,9 @@ If all nodes are registered you can simultaneously arrange multiple graph.
 
 #### 2.5. Add Custom Graph Config (Shift+Enter)
 
-You can have as many different configurations as you want by graph type *(see [Custom graph config](#336-Custom-graph-config))*.
+You can have as many different configurations as you want by graph type *(see [Custom graph config](#332-custom-graph-config))*.
 
-[Table of contents](#Table-of-contents)
+[Table of contents](#table-of-contents)
 
 ### 3. Configuration
 
@@ -141,37 +169,54 @@ ANA has a lot of customizable options : you can change them in ***Editor Prefere
 
 #### 3.1. Basic configuration
 
-##### 3.1.1. Auto arrange
+##### 3.1.1. Arrange selection type
+
+There are 3 types of arrangement according to the selected nodes count.
+
+* **One For All** *(default)* : if one node is selected, ANA will arrange all connected nodes of the selected node. If multiple nodes are selected, ANA will arrange the selected nodes.
+* **Always Selected** : ANA will always arrange the selected nodes.
+* **Always Connected** *(previous default)* : ANA will always arrange all connected nodes of the selected nodes.
+
+For all types, if no node is selected, ANA will arrange all nodes of the current graph.
+
+The arrange selection type is also used for the [auto arrangement](#312-auto-arrange).
+
+##### 3.1.2. Auto arrange
 
 If enabled, ANA automatically arranges nodes after a pin connection on deselection with the latest used arrange mode.
 
-[![AutoArrange](Gifs/Downsized/3_111-AutoArrange.gif)](Gifs/3_111-AutoArrange.gif)
+[![AutoArrange](Gifs/Downsized/3_121-AutoArrange.gif)](Gifs/3_121-AutoArrange.gif)
 
-##### 3.1.2. Auto generate reroute
+The nodes that are auto arranged are the selected nodes while the last manual arrangement and all the newly connected nodes.  
+*They are visually selected after the auto arrangement.*
+
+https://user-images.githubusercontent.com/49993916/209291755-d5f480f9-1798-4acb-ae86-e81016525e78.mp4
+
+##### 3.1.3. Auto generate reroute
 
 If enabled, ANA automatically generates reroute nodes for each loop connection.
 
 **Tip :** reroute nodes are generated between the 2 nodes **the most 'negatively' spaced in X'.**
 
-[![ReroutePlacement](Images/Downsized/3_121-ReroutePlacement.png)](Images/3_121-ReroutePlacement.png) [![RerouteArrangement](Images/Downsized/3_122-RerouteArrangement.png)](Images/3_122-RerouteArrangement.png)
+[![ReroutePlacement](Images/Downsized/3_131-ReroutePlacement.png)](Images/3_131-ReroutePlacement.png) [![RerouteArrangement](Images/Downsized/3_132-RerouteArrangement.png)](Images/3_132-RerouteArrangement.png)
 
-##### 3.1.3. Exec spacing
+##### 3.1.4. Exec spacing
 
 Exec Spacing is used between 2 nodes connected by exec pins.
 
-[![ExecSpacing50](Images/Downsized/3_131-ExecSpacing50.png)](Images/3_131-ExecSpacing50.png) [![ExecSpacing200](Images/Downsized/3_132-ExecSpacing200.png)](Images/3_132-ExecSpacing200.png)
+[![ExecSpacing50](Images/Downsized/3_141-ExecSpacing50.png)](Images/3_141-ExecSpacing50.png) [![ExecSpacing200](Images/Downsized/3_142-ExecSpacing200.png)](Images/3_142-ExecSpacing200.png)
 
-##### 3.1.4. Group all connected graph
+##### 3.1.5. Group all connected graph
 
 If enabled, ANA groups all connected graph.
 
-[![GroupOn](Gifs/Downsized/3_1411-GroupOn.gif)](Gifs/3_1411-GroupOn.gif) [![GroupOff](Gifs/Downsized/3_1412-GroupOff.gif)](Gifs/3_1412-GroupOff.gif)
+[![GroupOn](Gifs/Downsized/3_1511-GroupOn.gif)](Gifs/3_1511-GroupOn.gif) [![GroupOff](Gifs/Downsized/3_1512-GroupOff.gif)](Gifs/3_1512-GroupOff.gif)
 
-##### 3.1.5. Instant arrange
+##### 3.1.6. Instant arrange
 
 If enabled, animation is disabled.
 
-##### 3.1.6. Progressive selection
+##### 3.1.7. Progressive selection
 
 On Select Connected Graph (**Shift+F**),
 - if enabled, the selection of nodes and comment is progresive
@@ -238,11 +283,19 @@ You can disable this feature by putting 0 as value for the aligned pins offset, 
 
 ##### 3.3.2. Custom graph config
 
-By default, there are 3 graph configs : the Material Graph config, the AI Graph config and the default Graph config used with all other graph types. You can add a custom graph config for one graph type with Add custom graph config command (Shift+Enter by default). ANA warns you when you already add this graph type, else it adds a new configuration which override the “default” graph config.
+By default, there are 3 graph configs : the Material Graph config, the AI Graph config and the default Graph config used with all other graph types.  
+You can add a custom graph config for one graph type with Add custom graph config command (Shift+Enter by default).  
+ANA warns you when you already add this graph type, else it adds a new configuration which override the “default” graph config.
 
 **Tip :** you can also override Material Graph config or AI Graph config.
 
-[Table of contents](#Table-of-contents)
+[Table of contents](#table-of-contents)
+
+##### 3.3.3. Show new features
+
+You can enable this option to display the notifications that describe how to use the features of the new version of ANA.
+
+![ShowNewFeatures](Images/3_33-ShowNewFeatures.png)
 
 ### 4. Node properties register
 
@@ -260,4 +313,4 @@ When you got an error :
 - Fill this [template e-mail](Template_e_mail.md)
 - Send it at this e-mail address : bstt.ue4@gmail.com
 
-[Table of contents](#Table-of-contents)
+[Table of contents](#table-of-contents)
