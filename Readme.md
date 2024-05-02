@@ -23,7 +23,7 @@ Please report any unexpected behaviours. It will be fixed as soon as possible. *
 ###### 2.1.2. [Arrange Center (Shift+X)](#212-arrange-center-shiftx-1)
 ###### 2.1.3. [Arrange Compact (Shift+V)](#213-arrange-compact-shiftv-1)
 
-##### 2.2. [Toggle Auto Arrange (Shift+Space)](#22-toggle-auto-arrange-shiftspace-1)
+<!-- ##### 2.2. [Toggle Auto Arrange (Shift+Space)](#22-toggle-auto-arrange-shiftspace-1) -->
 
 ##### 2.3. [Select Connected Graph (Shift+F)](#23-select-connected-graph-shiftf-1)
 
@@ -60,9 +60,7 @@ Please report any unexpected behaviours. It will be fixed as soon as possible. *
 
 ### What is new ?
 
-* [2.1. Arrange](#21-arrange-1)
-* [3.1.1. Arrange selection type](#311-arrange-selection-type)
-* [3.1.2. Auto arrange](#312-auto-arrange)
+* Deletion of Auto arrange feature
 
 ### 1. Tips
 
@@ -124,9 +122,7 @@ ANA places a node below another on its right if it is not exec connected and it 
 
 [![Compact](Images/Downsized/2_13-Compact.png)](Images/2_13-Compact.png)
 
-#### 2.2. Toggle Auto Arrange (Shift+Space)
-
-You can enable/disable the [auto arrangement](#312-auto-arrange) on pin connection.
+#### <s>2.2. Toggle Auto Arrange (Shift+Space)</s>
 
 #### 2.3. Select Connected Graph (Shift+F)
 
@@ -179,18 +175,7 @@ There are 3 types of arrangement according to the selected nodes count.
 
 For all types, if no node is selected, ANA will arrange all nodes of the current graph.
 
-The arrange selection type is also used for the [auto arrangement](#312-auto-arrange).
-
-##### 3.1.2. Auto arrange
-
-If enabled, ANA automatically arranges nodes after a pin connection on deselection with the latest used arrange mode.
-
-[![AutoArrange](Gifs/Downsized/3_121-AutoArrange.gif)](Gifs/3_121-AutoArrange.gif)
-
-The nodes that are auto arranged are the selected nodes while the last manual arrangement and all the newly connected nodes.  
-*They are visually selected after the auto arrangement.*
-
-https://user-images.githubusercontent.com/49993916/209291755-d5f480f9-1798-4acb-ae86-e81016525e78.mp4
+##### <s>3.1.2. Auto arrange</s>
 
 ##### 3.1.3. Auto generate reroute
 
