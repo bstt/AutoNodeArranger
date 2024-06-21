@@ -27,9 +27,11 @@ Please report any unexpected behaviours. It will be fixed as soon as possible. *
 
 ##### 2.3. [Select Connected Graph (Shift+F)](#23-select-connected-graph-shiftf-1)
 
-#### 2.4. [Register All Nodes (Shift+P)](#24-register-all-nodes-shiftp-1)
+<!-- #### 2.4. [Register All Nodes (Shift+P)](#24-register-all-nodes-shiftp-1) -->
 
 ##### 2.5. [Add Custom Graph Config (Shift+Enter)](#25-add-custom-graph-config-shiftenter-1)
+
+##### 2.6. [Toggle Use Arrangement (Ctrl+Shift+Space)](#26-toggle-use-arrangement-ctrlshiftspace-1)
 
 #### 3. [Configuration](#3-configuration-1)
 
@@ -54,13 +56,38 @@ Please report any unexpected behaviours. It will be fixed as soon as possible. *
 ###### 3.3.1. [Aligned pins offset](#331-aligned-pins-offset-1)
 ###### 3.3.2. [Custom graph config](#332-custom-graph-config-1)
 -->
-#### 4. [Node properties register](#4-node-properties-register-1)
-#### 5. [Contact me](#5-contact-me-1)
+<!-- #### 4. [Node properties register](#4-node-properties-register-1) -->
+#### 5. [Raise issue](#5-raise-issue-1)
+#### 6. [Contact me](#6-contact-me-1)
 #
 
 ### What is new ?
 
-* Deletion of Auto arrange feature
+* Release of Beta arrangement:
+  * only the Straight arrangement is available
+  * group all connected graph is not yet available
+  * option added to disable the beta arrangement
+  * option added to enable the beta reroute arrangement
+* Github issues are now available
+* Crash handling improved
+* Remove of Register All Nodes command (automatically done)
+* Save in files instead of project settings
+
+### What is coming ?
+
+#### For next release:
+
+* Better Straight arrangement
+* Handling of huge graphs
+* Better comment handling
+
+#### For future releases:
+
+* Center arrangement
+* Compact arrangement
+* Group all connected graph
+* Material/Sound graph arrangement
+* Documentation update
 
 ### 1. Tips
 
@@ -141,19 +168,17 @@ Press again **Shift+F** to increase the selection.
 
 ![ConnectedGraph](Gifs/2_31-ConnectedGraph.gif)
 
-#### 2.4. Register All Nodes (Shift+P)
-
-You can [register the size of all nodes](Gifs/2_41-RegisterAllNodes.gif) of the current graph.
-
-If all nodes are registered you can simultaneously arrange multiple graph.
-
-[![SimultaneousMultipleGraphArrangement](Gifs/Downsized/2_42-SimultaneousMultipleGraphArrangement.gif)](Gifs/2_42-SimultaneousMultipleGraphArrangement.gif)
-
-**Tip :** Use this command when many nodes are not registered (due to copy-paste or an implementation started without ANA)
+#### <s>2.4. Register All Nodes (Shift+P)</s>
 
 #### 2.5. Add Custom Graph Config (Shift+Enter)
 
 You can have as many different configurations as you want by graph type *(see [Custom graph config](#332-custom-graph-config))*.
+
+[Table of contents](#table-of-contents)
+
+#### 2.6. Toggle Use Arrangement (Ctrl+Shift+Space)
+
+You can enable or disable the arrangement of the selected nodes. It is useful in order to raise an issue *(see [Raise issue](#5-raise-issue-1))*.
 
 [Table of contents](#table-of-contents)
 
@@ -282,15 +307,26 @@ You can enable this option to display the notifications that describe how to use
 
 ![ShowNewFeatures](Images/3_33-ShowNewFeatures.png)
 
-### 4. Node properties register
+### <s>4. Node properties register</s>
 
-ANA stores the size of all nodes in the Node properties register: you can access it here : ***Project Settings/Plugins/Auto Node Arranger***.
+### 5. Raise issue
 
-![ANA_ProjectSettings](Images/4_1-ANA_ProjectSettings.png)
+When you got an arrangement error (see gif below):
+- Press **Ctrl+Shift+Space** to disable the arrangement.
+- Execute the Arrange command again.
+- Click on the link to raise an issue.
+- Explorer will open and show the graph that cause the issue.
+  Attach this graph to the issue.
+- Describe the error and the steps to reproduce it.
 
-There you can delete node properties that you don't need anymore.
+[![RaiseIssue](Gifs/Downsized/5_1-RaiseIssue.gif)](Gifs/5_1-RaiseIssue.gif)
 
-### 5. Contact me
+When you got an error different than arrangement:
+- Try to reproduce the error in a brand new project.
+- [Create a new issue](https://github.com/bstt/AutoNodeArranger/issues/new?assignees=&labels=bug&projects=&template=bug_report.yaml&title=%5BBug%5D%3A+)
+- Describe the error and the steps to reproduce it.
+
+### 6. Contact me
 
 When you got an error :
 - Save your project.

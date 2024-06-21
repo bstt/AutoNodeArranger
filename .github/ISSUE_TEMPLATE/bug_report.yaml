@@ -1,0 +1,96 @@
+name: Bug Report
+description: File a bug report.
+title: "[Bug]: "
+labels: ["bug"]
+projects: []
+body:
+- type: markdown
+  attributes:
+    value: |
+      Thanks for taking the time to fill out this bug report!
+- type: input
+  id: bug-description
+  attributes:
+    label: Bug description
+    description: A clear and concise description of what the bug is.
+    placeholder: |
+      ex: A crash occured while arranging.
+  validations:
+    required: true
+- type: dropdown
+  id: action
+  attributes:
+    label: Action
+    description: What were you doing while error occured?
+    options:
+      - Arrange graph
+      - Select Nodes
+      - Open graph
+      - Doing nothing
+      - Other...
+    default: 0
+  validations:
+    required: true
+- type: input
+  id: other-action
+  attributes:
+    label: Other action
+    description: A name for the other action.
+    placeholder: |
+      ex: Close graph
+  validations:
+    required: false
+- type: dropdown
+  id: version
+  attributes:
+    label: Version
+    description: What version of Unreal Engine are you running?
+    options:
+      - 5.4
+      - 5.3
+      - 5.2
+      - Other
+    default: 0
+  validations:
+    required: true
+- type: dropdown
+  id: occurancy
+  attributes:
+    label: Occurancy
+    description: How reproductible the bug is?
+    options:
+      - Always
+      - Sometimes
+      - Once
+  validations:
+    required: true
+- type: textarea
+  id: reproduce-steps
+  attributes:
+    label: How can we reproduce?
+    description: |
+      If applicable the Graph data to reproduce (c.f section UseArrangement).
+      A clear and concise description of the steps to reproduce.
+    placeholder: |
+      ex:
+      Step 1: Create a Blueprint A.
+      Step 2: Place it in another Blueprint B.
+      Step 3: Delete the Blueprint A.
+      Step 4: Execute Arrange Straight
+      or:
+      Graph Data attached for reproduction.
+  validations:
+    required: true
+- type: textarea
+  id: what-happened
+  attributes:
+    label: What happened?
+    description: What happened? What did you expect?
+    value: |
+      **What I expect:**
+      (A clear and concise description of what you expected to happen.)
+
+      **What happened:**
+      (A clear and concise description of what happened.)
+  validations:
+    required: true
